@@ -1,0 +1,25 @@
+###
+POST http://localhost:9000/api/users HTTP/1.1
+Content-Type: application/json
+
+{
+  "estado": false,
+  "posicion": "B3"
+}
+###
+GET http://localhost:9000/api/users HTTP/1.1
+
+###
+GET http://localhost:9000/api/users/65adcf94bbc1c76df4b80370 HTTP/1.1
+//obtener los datos del usuario que quieras
+###
+DELETE http://localhost:9000/api/users/65a0382141aacb67a68e89dc HTTP/1.1
+//eliminar el usuario que quieras
+###
+PUT http://localhost:9000/api/users/65adcf94bbc1c76df4b80370 HTTP/1.1
+Content-Type: application/json
+
+{
+  "estado": true,
+  "posicion": "A1"
+}

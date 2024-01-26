@@ -1,0 +1,9 @@
+<ion-content [fullscreen]="true">
+  <ion-grid [fixed]="true">
+    <ion-row>
+      <ion-col *ngFor="let posicion of posiciones" [ngStyle]="getEstadoStyle(posicion)">
+        {{ posicion }}
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
