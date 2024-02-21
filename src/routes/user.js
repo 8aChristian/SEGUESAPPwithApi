@@ -5,14 +5,15 @@ const router = express.Router();
 
 // create user
 router.post("/users", (req, res) => {
-  const { estado, posicion } = req.body; // Extrae solo los campos necesarios
-  const newUser = new User({ estado, posicion }); // Crea un nuevo usuario con los campos requeridos
+  const { estado } = req.body; // Solo extrae el campo 'estado'
+  const { sector, fila, columna } = req.body; // Extrae el sector, fila y columna
+  const id = `${sector},${fila},${columna}`; // Crea el ID combinando sector, fila y columna
+  const newUser = new User({ estado, _id: id }); // Crea un nuevo usuario con el estado y el nuevo ID
   
   newUser.save()
     .then((data) => res.json(data))
     .catch((error) => res.json({ message: error }));
 });
-
 // get all users
 router.get("/users", (req, res) => {
   User.find({}, 'estado posicion') // Proyecta solo los campos estado y posicion
@@ -38,12 +39,11 @@ router.delete("/users/:id", (req, res) => {
 });
 
 
-// update a user
 router.put("/users/:id", (req, res) => {
   const { id } = req.params;
-  const { estado, posicion } = req.body; // Solo acepta los campos necesarios
+  const { estado } = req.body; // Solo acepta el campo 'estado'
   
-  User.updateOne({ _id: id }, { $set: { estado, posicion } })
+  User.updateOne({ _id: id }, { $set: { estado } })
     .then((data) => res.json(data))
     .catch((error) => res.json({ message: error }));
 });

@@ -3,15 +3,16 @@ const mongoose = require("mongoose");
 
 const userSchema = mongoose.Schema({
     // Se define un esquema de usuario utilizando el método Schema de Mongoose.
-    estado: {
-        type: Boolean,
-        required: true//atributo necesario para mandar los datos
-    },
-    posicion: {
+    id: {
         type: String,
-        required: true//atributo necesario para mandar los dato
-    }
-});
+        required: true
+      },
+      estado: {
+        type: Boolean,
+        required: true
+      }
+    });
+    
 
 module.exports = mongoose.model("User", userSchema);
 // Se exporta el modelo de usuario creado a partir del esquema definido para su uso en otras partes de la aplicación.

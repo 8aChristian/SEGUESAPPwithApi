@@ -1,6 +1,7 @@
 const express = require("express");
+const cors = require("cors");
 const mongoose = require("mongoose");
-const cors = require("cors"); // Agrega la línea para importar el módulo cors
+const dotenv = require("dotenv");
 require("dotenv").config();
 
 const userRoutes = require("./routes/user");

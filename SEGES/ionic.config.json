@@ -1,7 +1,0 @@
-{
-  "name": "SEGES",
-  "integrations": {
-    "capacitor": {}
-  },
-  "type": "angular"
-}
